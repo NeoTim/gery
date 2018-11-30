@@ -34,6 +34,7 @@ class Client {
     const result = await getResult(res)
 
     const isOK = res.ok && !result.errors && result.data
+
     if (isOK) return result.data
 
     // TODO: handle error
