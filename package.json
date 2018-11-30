@@ -1,6 +1,6 @@
 {
   "name": "gery",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Minimal graphql client",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
