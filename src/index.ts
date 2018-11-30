@@ -1,4 +1,4 @@
-import 'cross-fetch/polyfill'
+import fetch from 'cross-fetch'
 import { Options, Variables } from './typings'
 import gql from './gql'
 
