@@ -18,7 +18,7 @@ export default {
       sourcemap: true,
     },
   ],
-  external: [],
+  external: ['cross-fetch'],
   plugins: [
     typescript({
       rollupCommonJSResolveHack: true,
