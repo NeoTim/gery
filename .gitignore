@@ -1,10 +1,12 @@
 logs/
 npm-debug.log
 node_modules/
+yarn-error.log
+
+.rpt2_cache/
+.history
 .idea/
 .DS_Store
 *.swp
 
-.rpt2_cache/
-.history
 dist/
