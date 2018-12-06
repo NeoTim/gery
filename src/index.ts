@@ -2,15 +2,13 @@ import fetch from 'cross-fetch'
 import { Options, Variables } from './typings'
 import gql from './gql'
 
-export { gql, Client, Variables }
+export { gql, GraphQLClient, query }
 
-class Client {
-  private enpoint: string
+class GraphQLClient {
   private options: Options
 
-  constructor(endpoint: string, options?: Options) {
-    this.enpoint = endpoint
-    this.options = options || {}
+  constructor(options: Options) {
+    this.options = options
   }
 
   async query<T>(gqlStr: string, variables?: Variables): Promise<T> {
@@ -21,7 +19,7 @@ class Client {
       variables: variables ? variables : undefined,
     })
 
-    const res = await fetch(this.enpoint, {
+    const res = await fetch(this.options.endpoint, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -32,14 +30,20 @@ class Client {
     })
 
     const result = await getResult(res)
-
     const isOK = res.ok && !result.errors && result.data
 
     if (isOK) return result.data
-
-    // TODO: handle error
-    throw new Error(JSON.stringify(res))
+    throw result
   }
+}
+
+async function query<T extends any>(
+  endpoint: string,
+  gqlStr: string,
+  variables?: Variables,
+): Promise<T> {
+  const client = new GraphQLClient({ endpoint })
+  return client.query<T>(gqlStr, variables)
 }
 
 async function getResult(res: Response): Promise<any> {

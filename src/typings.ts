@@ -15,13 +15,6 @@ export interface Headers {
 }
 
 export interface Options {
-  method?: RequestInit['method']
+  endpoint: string
   headers?: Headers
-  mode?: RequestInit['mode']
-  credentials?: RequestInit['credentials']
-  cache?: RequestInit['cache']
-  redirect?: RequestInit['redirect']
-  referrer?: RequestInit['referrer']
-  referrerPolicy?: RequestInit['referrerPolicy']
-  integrity?: RequestInit['integrity']
 }
