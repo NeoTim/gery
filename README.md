@@ -26,6 +26,8 @@ const GET_PERSONS = gql`
 `
 
 const endpoint = 'https://api.graph.cool/simple/v1/swapi'
+
+query(endpoint, GET_PERSONS).then(data => console.log(data))
 ```
 
 ## Use Client
