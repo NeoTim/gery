@@ -14,7 +14,8 @@ yarn add gery
 ## Quick start
 
 ```js
-import { query, gql } from 'graphql-request'
+import { query } from 'graphql-request'
+import { gql } from 'gql-tag' // editor helper
 
 const GET_PERSONS = gql`
   {
@@ -33,7 +34,8 @@ query(endpoint, GET_PERSONS).then(data => console.log(data))
 ## Use Client
 
 ```js
-import { GraphQLClient, gql } from 'gery'
+import { GraphQLClient } from 'gery'
+import { gql } from 'gql-tag' // editor helper
 
 const GET_PERSONS = gql`
   {
