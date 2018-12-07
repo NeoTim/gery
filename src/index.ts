@@ -1,8 +1,7 @@
 import fetch from 'cross-fetch'
 import { Options, Variables } from './typings'
-import gql from './gql'
 
-export { gql, GraphQLClient, query }
+export { GraphQLClient, query }
 
 class GraphQLClient {
   private options: Options
@@ -16,7 +15,7 @@ class GraphQLClient {
 
     const body = JSON.stringify({
       query: gqlStr,
-      variables: variables ? variables : undefined,
+      variables,
     })
 
     const res = await fetch(this.options.endpoint, {

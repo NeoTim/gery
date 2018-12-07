@@ -1,4 +1,5 @@
-import { GraphQLClient, query, gql } from '../src'
+import gql from 'gql-tag'
+import { GraphQLClient, query } from '../src'
 
 interface Person {
   Person: {
