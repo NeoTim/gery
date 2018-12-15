@@ -1,7 +1,7 @@
 import fetch from 'cross-fetch'
 import { Options, Variables } from './typings'
 
-export { GraphQLClient, query }
+export { GraphQLClient, query, Variables }
 
 class GraphQLClient {
   private options: Options
